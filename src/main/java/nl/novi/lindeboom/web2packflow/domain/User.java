@@ -31,6 +31,7 @@ public class User {
     private String username;
     private String email;
     private String password;
+     private boolean enabled = true;
 
     @ManyToMany
     @JoinTable (name = "user_role",
@@ -86,5 +87,13 @@ public class User {
 
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
+    }
+
+    public boolean isEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
     }
 }

@@ -29,5 +29,6 @@ insert into orderitems (source_order_id, source_item_id) values ('order4', 'item
 insert into orderitems (source_order_id, source_item_id) values ('order5', 'item1');
 
 
+-- insert into app_user (username,email,enabled,password) values ('admin','admin@web2packflow.com',true,'$2y$12$tpEvbOqrGwgIed9t85AKeeaoDPKAvuEzArUGbNdbDymBd7boI8Erm');
 
 
