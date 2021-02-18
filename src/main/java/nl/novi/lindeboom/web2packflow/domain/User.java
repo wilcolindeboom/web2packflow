@@ -31,7 +31,7 @@ public class User {
     private String username;
     private String email;
     private String password;
-     private boolean enabled = true;
+    private boolean enabled ;
 
     @ManyToMany
     @JoinTable (name = "user_role",
@@ -47,6 +47,7 @@ public class User {
         this.username = username;
         this.email = email;
         this.password = password;
+        this.enabled = true;
     }
 
     public long getId() {

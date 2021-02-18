@@ -9,6 +9,7 @@ import io.jsonwebtoken.UnsupportedJwtException;
 import nl.novi.lindeboom.web2packflow.service.UserDetailsImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Component;
@@ -21,10 +22,11 @@ public class JwtUtils {
 
     // Deze waardes staan geconfigureerd in application.properties
     @Value("${novi.sec.jwtSecret}")
-    private String jwtSecret;
+    private String jwtSecret ;
 
     @Value("${novi.sec.jwtExpirationMs}")
-    private int jwtExpirationMs;
+    private int jwtExpirationMs ;
+
 
     public String generateJwtToken(Authentication authentication) {
 

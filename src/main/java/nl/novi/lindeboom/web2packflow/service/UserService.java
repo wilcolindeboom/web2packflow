@@ -1,4 +1,9 @@
 package nl.novi.lindeboom.web2packflow.service;
+
+import nl.novi.lindeboom.web2packflow.domain.User;
+
+import java.util.Collection;
+
 //
 //import nl.novi.lindeboom.web2packflow.domain.Role;
 //import nl.novi.lindeboom.web2packflow.domain.User;
@@ -10,6 +15,8 @@ package nl.novi.lindeboom.web2packflow.service;
 public interface UserService {
 
     //todo
+
+   public abstract Collection<User> getUsers();
 }
 //
 //    public abstract String createUser(User user);

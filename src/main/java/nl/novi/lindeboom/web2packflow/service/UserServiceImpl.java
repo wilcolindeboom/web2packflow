@@ -1,23 +1,29 @@
 package nl.novi.lindeboom.web2packflow.service;
-//
-//import nl.novi.lindeboom.web2packflow.domain.Role;
-//import nl.novi.lindeboom.web2packflow.domain.User;
-//import nl.novi.lindeboom.web2packflow.repository.UserRepository;
-//import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.http.ResponseEntity;
-//import org.springframework.security.core.GrantedAuthority;
-//import org.springframework.security.core.userdetails.UserDetails;
-//import org.springframework.security.core.userdetails.UserDetailsService;
-//import org.springframework.security.core.userdetails.UsernameNotFoundException;
-//import org.springframework.stereotype.Service;
-//import org.springframework.transaction.annotation.Transactional;
-//
-//import java.util.Collection;
-//import java.util.Optional;
-//import java.util.Set;
-//
-//@Service
-public class UserServiceImpl {
+
+import nl.novi.lindeboom.web2packflow.domain.User;
+import nl.novi.lindeboom.web2packflow.repository.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+
+import java.util.Collection;
+
+
+@Service
+public class UserServiceImpl implements UserService {
+
+    UserRepository userRepository;
+
+    @Autowired
+    public UserServiceImpl(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
+
+    @Override
+    public Collection<User> getUsers() {
+           return userRepository.findAll();
+        }
+
 
     //todo
 }
