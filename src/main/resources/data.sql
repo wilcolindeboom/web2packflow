@@ -13,7 +13,7 @@ database te krijgen is via SQL statements in dit bestand.
  */
 
 INSERT INTO role(name) VALUES('ROLE_USER');
-INSERT INTO role(name) VALUES('ROLE_MODERATOR');
+INSERT INTO role(name) VALUES('ROLE_EDITOR');
 INSERT INTO role(name) VALUES('ROLE_ADMIN');
 
 insert into orders (source_order_id) values ('order1');
@@ -29,6 +29,7 @@ insert into orderitems (source_order_id, source_item_id) values ('order3', 'item
 insert into orderitems (source_order_id, source_item_id) values ('order4', 'item4');
 insert into orderitems (source_order_id, source_item_id) values ('order5', 'item1');
 
+insert into batches (batch_id, closed) VALUES (1,false);
 
 -- insert into app_user (id, username,email,enabled,password) values (0,'admin','admin@web2packflow.com',true,crypt('123456', gen_salt('bf')));
 insert into app_user (id, username,email,enabled,password) values (0,'admin','admin@web2packflow.com',true,'$2a$10$wPHxwfsfTnOJAdgYcerBt.utdAvC24B/DWfuXfzKBSDHO0etB1ica');

@@ -18,9 +18,17 @@ public class OrderItem implements Serializable {
     @Column(nullable = false)
     @JsonIgnore
     private String sourceOrderId;
+//
+//    @Column
+//    private Long batchId;
+
+////    @ManyToOne
+////    @JoinColumn(columnDefinition = "batchId")
+//    private Batch batch;
 
     @ManyToOne
     @JoinColumn(columnDefinition = "sourceOrderId")
+    @JsonIgnore
     private Order order;
 
     public Order getOrder() {
@@ -46,5 +54,21 @@ public class OrderItem implements Serializable {
     public void setSourceItemId(String sourceItemId) {
         this.sourceItemId = sourceItemId;
     }
+
+//    public Long getBatchId() {
+//        return batchId;
+//    }
+//
+//    public void setBatchId(Long batchId) {
+//        this.batchId = batchId;
+//    }
+
+//    public Batch getBatch() {
+//        return batch;
+//    }
+//
+//    public void setBatch(Batch batch) {
+//        this.batch = batch;
+//    }
 }
 
