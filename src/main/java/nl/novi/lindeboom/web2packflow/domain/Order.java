@@ -15,7 +15,7 @@ public class Order {
 
     @OneToMany(
             targetEntity = OrderItem.class,
-            mappedBy = "sourceOrderId",
+            mappedBy = "order",
             cascade = CascadeType.ALL,
             orphanRemoval = true,
             fetch = FetchType.EAGER)
@@ -33,7 +33,7 @@ public class Order {
         return sourceOrderId;
     }
 
-    public void setSourceOrderId(String sourceOrderId) {
-        this.sourceOrderId = sourceOrderId;
+    public void setSourceOrderId(String id) {
+        this.sourceOrderId = id;
     }
 }

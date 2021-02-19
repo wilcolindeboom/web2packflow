@@ -5,7 +5,9 @@ import java.io.Serializable;
 public class OrderItemId implements Serializable {
 
     private String sourceItemId;
-    private String sourceOrderId;
+//    private String order_id;
+    private Order order;
+
 
     @Override
     public boolean equals(Object o) {

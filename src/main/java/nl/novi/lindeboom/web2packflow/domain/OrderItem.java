@@ -1,6 +1,7 @@
 package nl.novi.lindeboom.web2packflow.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -8,28 +9,30 @@ import java.io.Serializable;
 @Entity
 @IdClass(nl.novi.lindeboom.web2packflow.domain.OrderItemId.class)
 @Table (name = "orderitems")
-public class OrderItem implements Serializable {
+public class OrderItem  {
+
+    @ManyToOne
+    @MapsId
+    @JoinColumn(name = "source_order_id")
+    @JsonIgnore
+//    @JsonIgnoreProperties("orderItems")
+    private Order order;
 
     @Id
     @Column(nullable = false)
     private String sourceItemId;
 
-    @Id
-    @Column(nullable = false)
-    @JsonIgnore
-    private String sourceOrderId;
-//
-//    @Column
-//    private Long batchId;
-
-////    @ManyToOne
-////    @JoinColumn(columnDefinition = "batchId")
-//    private Batch batch;
+//    @Id
+//    @Column(nullable = false)
+//    @JsonIgnore
+//    private String sourceOrderId;
 
     @ManyToOne
-    @JoinColumn(columnDefinition = "sourceOrderId")
+    @JoinColumn(name = "batch_id")
     @JsonIgnore
-    private Order order;
+    private Batch batch;
+
+
 
     public Order getOrder() {
         return order;
@@ -39,13 +42,13 @@ public class OrderItem implements Serializable {
         this.order = order;
     }
 
-    public String getSourceOrderId() {
-        return sourceOrderId;
-    }
-
-    public void setSourceOrderId(String sourceOrderId) {
-        this.sourceOrderId = sourceOrderId;
-    }
+//    public String getSourceOrderId() {
+//        return sourceOrderId;
+//    }
+//
+//    public void setSourceOrderId(String sourceOrderId) {
+//        this.sourceOrderId = sourceOrderId;
+//    }
 
     public String getSourceItemId() {
         return sourceItemId;
@@ -55,20 +58,12 @@ public class OrderItem implements Serializable {
         this.sourceItemId = sourceItemId;
     }
 
-//    public Long getBatchId() {
-//        return batchId;
-//    }
-//
-//    public void setBatchId(Long batchId) {
-//        this.batchId = batchId;
-//    }
+    public Batch getBatch() {
+        return batch;
+    }
 
-//    public Batch getBatch() {
-//        return batch;
-//    }
-//
-//    public void setBatch(Batch batch) {
-//        this.batch = batch;
-//    }
+    public void setBatch(Batch batch) {
+        this.batch = batch;
+    }
 }
 
