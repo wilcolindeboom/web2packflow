@@ -19,7 +19,7 @@ public class Order {
             cascade = CascadeType.ALL,
             orphanRemoval = true,
             fetch = FetchType.EAGER)
-    private List<OrderItem> orderItems = new ArrayList<>();
+    private List<OrderItem> orderItems ;
 
     public List<OrderItem> getOrderItems() {
         return orderItems;

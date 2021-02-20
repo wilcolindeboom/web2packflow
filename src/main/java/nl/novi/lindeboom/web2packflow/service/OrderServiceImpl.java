@@ -1,15 +1,18 @@
 package nl.novi.lindeboom.web2packflow.service;
 
+import nl.novi.lindeboom.web2packflow.converter.OrderConverter;
 import nl.novi.lindeboom.web2packflow.domain.Order;
 import nl.novi.lindeboom.web2packflow.exception.RecordNotFoundException;
 import nl.novi.lindeboom.web2packflow.repository.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 
 @Service
 public class OrderServiceImpl implements OrderService {
+
+    @Autowired
+    private OrderConverter orderConverter;
 
     @Autowired
     private OrderRepository orderRepository;
@@ -30,9 +33,9 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public String saveOrder(Order order) {
-        Order newOrder = orderRepository.save(order);
-        return newOrder.getSourceOrderId();
+    public Order saveOrder(Order order) {
+        return orderRepository.save(order);
     }
+
 
 }

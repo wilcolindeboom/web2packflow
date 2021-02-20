@@ -1,6 +1,7 @@
 package nl.novi.lindeboom.web2packflow.exception;
 
 import nl.novi.lindeboom.web2packflow.payload.response.ErrorResponse;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -37,6 +38,15 @@ public class GlobalExceptionHandler {
                 "");
         return new ResponseEntity<>(errorResponse, HttpStatus.BAD_REQUEST);
     }
+
+        @ExceptionHandler(value = DataIntegrityViolationException.class)
+    public ResponseEntity<Object> exception(DataIntegrityViolationException ex) {
+            ErrorResponse errorResponse = new ErrorResponse(new Date(), "Error processing JSON data",
+                    ex.getMessage());
+            return new ResponseEntity<>(errorResponse, HttpStatus.BAD_REQUEST);
+    }
+
+
 
 //
 //    @ExceptionHandler(value = BadRequestException.class)

@@ -17,4 +17,9 @@ public class BatchServiceImpl implements BatchService{
         return batchRepository.findAll();
     }
 
+    @Override
+    public Batch createBatch() {
+      return batchRepository.save(new Batch());
+    }
+
 }

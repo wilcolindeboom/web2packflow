@@ -31,14 +31,14 @@ public class Batch {
     private Long id;
 
     @Column
-    private boolean closed;
+    private boolean closed = false;
 
     @OneToMany(
             targetEntity = OrderItem.class,
             mappedBy = "batch",
             cascade = CascadeType.ALL,
             fetch = FetchType.EAGER)
-    private List<OrderItem> orderItems = new ArrayList<>();
+    private List<OrderItem> orderItems ;
 
     public Long getId() {
         return id;

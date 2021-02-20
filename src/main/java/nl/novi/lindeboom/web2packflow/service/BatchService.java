@@ -6,6 +6,8 @@ import java.util.List;
 
 public interface BatchService {
 
-    public List<Batch> getBatches() ;
+    List<Batch> getBatches() ;
+    Batch createBatch();
+
 
 }
