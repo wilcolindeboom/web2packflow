@@ -1,6 +1,7 @@
 package nl.novi.lindeboom.web2packflow.service;
 
 import nl.novi.lindeboom.web2packflow.payload.request.SignupRequest;
+import nl.novi.lindeboom.web2packflow.payload.response.ErrorResponse;
 import nl.novi.lindeboom.web2packflow.payload.response.JwtResponse;
 import nl.novi.lindeboom.web2packflow.payload.response.MessageResponse;
 import nl.novi.lindeboom.web2packflow.service.security.jwt.AuthEntryPointJwt;
@@ -20,6 +21,8 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;

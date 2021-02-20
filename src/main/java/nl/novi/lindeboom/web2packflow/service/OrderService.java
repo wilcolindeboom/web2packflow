@@ -6,5 +6,8 @@ import java.util.List;
 
 public interface OrderService {
 
-    public abstract List<Order> getOrders();
+    List<Order> getOrders();
+    Order getOrderById(String id);
+    String saveOrder(Order order);
+
 }

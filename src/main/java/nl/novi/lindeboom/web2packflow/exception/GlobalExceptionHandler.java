@@ -1,14 +1,20 @@
 package nl.novi.lindeboom.web2packflow.exception;
 
-
 import nl.novi.lindeboom.web2packflow.payload.response.ErrorResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-
 import java.util.Date;
+
+/**
+ * GlobalExceptionHandler handles all exceptions thrown as a result of an API request
+ * payload.response.ErrorResponse.class is used to provide a default structure for the error message
+ * - Validation error
+ * – record not found
+ * –
+ */
 
 @ControllerAdvice
 public class GlobalExceptionHandler {
@@ -20,11 +26,18 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(errorResponse, HttpStatus.BAD_REQUEST);
     }
 
-
 //    @ExceptionHandler(value = RecordNotFoundException.class)
 //    public ResponseEntity<Object> exception(RecordNotFoundException exception) {
 //        return ResponseEntity.notFound().build();
 //    }
+
+    @ExceptionHandler(value = RecordNotFoundException.class)
+    public ResponseEntity<Object> exception(RecordNotFoundException ex) {
+        ErrorResponse errorResponse = new ErrorResponse(new Date(), "Record not found",
+                "");
+        return new ResponseEntity<>(errorResponse, HttpStatus.BAD_REQUEST);
+    }
+
 //
 //    @ExceptionHandler(value = BadRequestException.class)
 //    public ResponseEntity<Object> exception(BadRequestException exception) {

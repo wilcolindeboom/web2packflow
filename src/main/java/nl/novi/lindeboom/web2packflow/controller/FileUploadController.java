@@ -28,13 +28,6 @@ public class FileUploadController {
         return fileUploadService.fileUpload(file);
     }
 
-//    @ResponseBody
-//    public String fileUpload(@RequestParam("file") MultipartFile file) throws IOException {
-//        String filename = file.getOriginalFilename();
-//        file.transferTo(new File(storageLocation + filename));
-//        return "File successfully uploaded!";
-//        }
-
-   }
+}
 
 
