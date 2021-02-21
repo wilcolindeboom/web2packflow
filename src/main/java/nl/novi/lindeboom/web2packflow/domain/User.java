@@ -50,6 +50,7 @@ public class User {
         this.enabled = true;
     }
 
+//getters and setters
     public long getId() {
         return id;
     }

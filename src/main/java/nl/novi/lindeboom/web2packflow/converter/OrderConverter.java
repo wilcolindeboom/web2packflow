@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class OrderConverter {
 
-    public Order dtoToEntity(OrderRequest orderRequest) {
+    public Order OrderRequestToOrder(OrderRequest orderRequest) {
         Order newOrder = new Order();
         newOrder.setSourceOrderId(orderRequest.getSourceOrderId());
         newOrder.setOrderItems(orderRequest.getOrderItems());

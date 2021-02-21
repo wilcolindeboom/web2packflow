@@ -7,7 +7,6 @@ import nl.novi.lindeboom.web2packflow.domain.OrderItem;
 import nl.novi.lindeboom.web2packflow.payload.request.OrderRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 
 @Service
@@ -23,15 +22,16 @@ public class OrderProcessServiceImpl implements OrderProcessService {
 
     @Override
     public String processOrder(OrderRequest orderRequest) {
-        Order newOrder = orderConverter.dtoToEntity(orderRequest);
-        Batch newBatch = batchService.createBatch();
+        Order newOrder = orderConverter.OrderRequestToOrder(orderRequest);
         List<OrderItem> newOrderItems = newOrder.getOrderItems();
-        for (OrderItem temp : newOrderItems) {
-            temp.setBatch(newBatch);
-            temp.setOrder(newOrder);
-        }
+        for (OrderItem item : newOrderItems) {
+            item.setOrder(newOrder);
+            item.setBatch(batchService.getBatch(item));
+            }
         newOrder.setOrderItems(newOrderItems);
-        return orderService.saveOrder(newOrder).getSourceOrderId();
+        String savedOrderId =  orderService.saveOrder(newOrder).getSourceOrderId();
+        return ("Order "+ savedOrderId + "  processed and saved successfully!");
     }
+
 }
 

@@ -36,13 +36,6 @@ public class OrderController {
     }
 
     @PostMapping(value = "")
-    public ResponseEntity<Object> saveOrder(@RequestBody Order orderRequest) {
-        String newOrderId = orderservice.saveOrder(orderRequest).getSourceOrderId();
-        return new ResponseEntity<>(newOrderId, HttpStatus.CREATED);
-    }
-
-
-    @PostMapping(value = "test")
     public ResponseEntity<Object> inputOrder(@RequestBody OrderRequest orderRequest) {
         String newOrderId = orderProcessService.processOrder(orderRequest);
         return new ResponseEntity<>(newOrderId, HttpStatus.CREATED);

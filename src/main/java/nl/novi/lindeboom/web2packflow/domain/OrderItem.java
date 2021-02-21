@@ -1,8 +1,6 @@
 package nl.novi.lindeboom.web2packflow.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 import javax.persistence.*;
 
 @Entity
@@ -13,9 +11,9 @@ public class OrderItem  {
     @ManyToOne
     @MapsId
     @JoinColumn(name = "source_order_id")
-//    @JsonIgnore
+    @JsonIgnore
 ////    @JsonIgnoreProperties("orderItems")
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+//    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Order order;
 
     @Id
@@ -24,10 +22,33 @@ public class OrderItem  {
 
     @ManyToOne
     @JoinColumn(name = "batch_id")
-//    @JsonIgnore
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @JsonIgnore
+//    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Batch batch;
 
+    @Column
+    private String SubstrateId;
+
+    @Column
+    private String FinishName;
+
+
+//getters and setters
+    public String getSubstrateId() {
+        return SubstrateId;
+    }
+
+    public void setSubstrateId(String substrateId) {
+        SubstrateId = substrateId;
+    }
+
+    public String getFinishName() {
+        return FinishName;
+    }
+
+    public void setFinishName(String finishName) {
+        FinishName = finishName;
+    }
 
     public Order getOrder() {
         return order;

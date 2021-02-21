@@ -31,6 +31,7 @@ public class Role {
     public Role() {
     }
 
+//getters and setters
     public Role(ERole name) {
         this.name = name;
     }

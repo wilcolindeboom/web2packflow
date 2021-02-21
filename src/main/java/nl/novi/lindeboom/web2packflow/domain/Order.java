@@ -21,6 +21,8 @@ public class Order {
             fetch = FetchType.EAGER)
     private List<OrderItem> orderItems ;
 
+
+//getters and setters
     public List<OrderItem> getOrderItems() {
         return orderItems;
     }

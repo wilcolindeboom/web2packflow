@@ -5,7 +5,6 @@ import java.io.Serializable;
 public class OrderItemId implements Serializable {
 
     private String sourceItemId;
-//    private String order_id;
     private Order order;
 
 
