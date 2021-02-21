@@ -1,6 +1,5 @@
 package nl.novi.lindeboom.web2packflow.controller;
 
-import nl.novi.lindeboom.web2packflow.domain.Order;
 import nl.novi.lindeboom.web2packflow.payload.request.OrderRequest;
 import nl.novi.lindeboom.web2packflow.service.OrderProcessService;
 import nl.novi.lindeboom.web2packflow.service.OrderService;
@@ -19,21 +18,27 @@ import org.springframework.web.bind.annotation.RestController;
 public class OrderController {
 
     @Autowired
-    private OrderService orderservice;
+    private OrderService orderService;
 
     @Autowired
     private OrderProcessService orderProcessService;
 
+    @GetMapping(value = "/test")
+    public ResponseEntity<Object> getOrdersTest() {
+        return ResponseEntity.status(200).body(orderService.getOrders());
+    }
+
     @GetMapping(value = "")
     public ResponseEntity<Object> getOrders() {
-        return ResponseEntity.status(200).body(orderservice.getOrders());
+        return ResponseEntity.status(200).body(orderProcessService.getOrders());
     }
+
 
     @GetMapping(value = "/{id}")
     public ResponseEntity<Object> getOrder(@PathVariable("id") String id) {
-        System.out.println("get order endpoint");
-        return ResponseEntity.status(200).body(orderservice.getOrderById(id));
+        return ResponseEntity.status(200).body(orderProcessService.getOrder(id));
     }
+
 
     @PostMapping(value = "")
     public ResponseEntity<Object> inputOrder(@RequestBody OrderRequest orderRequest) {

@@ -1,10 +1,10 @@
 package nl.novi.lindeboom.web2packflow.service;
 
 import nl.novi.lindeboom.web2packflow.converter.OrderConverter;
-import nl.novi.lindeboom.web2packflow.domain.Batch;
 import nl.novi.lindeboom.web2packflow.domain.Order;
 import nl.novi.lindeboom.web2packflow.domain.OrderItem;
 import nl.novi.lindeboom.web2packflow.payload.request.OrderRequest;
+import nl.novi.lindeboom.web2packflow.payload.response.OrderResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
@@ -35,8 +35,19 @@ public class OrderProcessServiceImpl implements OrderProcessService {
             return ("Order " + savedOrderId + "  processed and saved successfully!");
         }
         else
-            throw new DataIntegrityViolationException("Order "+ orderRequest.getSourceOrderId() +" already exists in the system!");
+            throw new DataIntegrityViolationException("Order "+ orderRequest.getSourceOrderId() +
+                    " already exists in the system!");
 
+    }
+
+    @Override
+    public OrderResponse getOrder(String id) {
+        return orderConverter.OrderToOrderResponse(orderService.getOrderById(id));
+    }
+
+    @Override
+    public List<OrderResponse> getOrders() {
+        return orderConverter.OrderToOrderResponse(orderService.getOrders());
     }
 
 }

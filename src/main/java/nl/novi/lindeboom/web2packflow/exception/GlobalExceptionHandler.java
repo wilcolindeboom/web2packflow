@@ -12,6 +12,7 @@ import java.util.Date;
 /**
  * GlobalExceptionHandler handles all exceptions thrown as a result of an API request
  * payload.response.ErrorResponse.class is used to provide a default structure for the error message
+ * handled errors:
  * - Validation error
  * – record not found
  * – Error processing JSON data

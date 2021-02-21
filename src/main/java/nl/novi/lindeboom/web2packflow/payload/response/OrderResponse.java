@@ -1,10 +1,11 @@
-package nl.novi.lindeboom.web2packflow.payload.request;
+package nl.novi.lindeboom.web2packflow.payload.response;
 
 import nl.novi.lindeboom.web2packflow.domain.OrderItem;
 
+import javax.persistence.Column;
 import java.util.List;
 
-public class OrderRequest {
+public class OrderResponse {
 
     private String sourceOrderId;
     private List<OrderItem> orderItems;

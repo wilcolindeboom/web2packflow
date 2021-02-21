@@ -12,8 +12,6 @@ public class OrderItem  {
     @MapsId
     @JoinColumn(name = "source_order_id")
     @JsonIgnore
-////    @JsonIgnoreProperties("orderItems")
-//    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Order order;
 
     @Id
@@ -23,7 +21,6 @@ public class OrderItem  {
     @ManyToOne
     @JoinColumn(name = "batch_id")
     @JsonIgnore
-//    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Batch batch;
 
     @Column
