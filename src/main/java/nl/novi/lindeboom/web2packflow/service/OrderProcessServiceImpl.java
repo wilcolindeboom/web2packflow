@@ -5,6 +5,7 @@ import nl.novi.lindeboom.web2packflow.domain.Order;
 import nl.novi.lindeboom.web2packflow.domain.OrderItem;
 import nl.novi.lindeboom.web2packflow.payload.request.OrderRequest;
 import nl.novi.lindeboom.web2packflow.payload.response.OrderResponse;
+import nl.novi.lindeboom.web2packflow.repository.ProductGroupRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
@@ -18,8 +19,7 @@ public class OrderProcessServiceImpl implements OrderProcessService {
     @Autowired
     private OrderService orderService;
     @Autowired
-    private BatchService batchService;
-
+    private BatchProcessService batchProcessService;
 
     @Override
     public String processOrder(OrderRequest orderRequest) {
@@ -28,7 +28,7 @@ public class OrderProcessServiceImpl implements OrderProcessService {
             List<OrderItem> newOrderItems = newOrder.getOrderItems();
             for (OrderItem item : newOrderItems) {
                 item.setOrder(newOrder);
-                item.setBatch(batchService.getBatch(item));
+                item.setBatch(batchProcessService.getBatch(item));
             }
             newOrder.setOrderItems(newOrderItems);
             String savedOrderId = orderService.saveOrder(newOrder).getSourceOrderId();

@@ -2,6 +2,7 @@ package nl.novi.lindeboom.web2packflow.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @IdClass(nl.novi.lindeboom.web2packflow.domain.OrderItemId.class)
@@ -29,23 +30,13 @@ public class OrderItem  {
     @Column
     private String FinishName;
 
+    @ManyToOne
+    @NotNull
+    @JoinColumn(name = "product_group_id")
+    private ProductGroup productGroup;
+
 
 //getters and setters
-    public String getSubstrateId() {
-        return SubstrateId;
-    }
-
-    public void setSubstrateId(String substrateId) {
-        SubstrateId = substrateId;
-    }
-
-    public String getFinishName() {
-        return FinishName;
-    }
-
-    public void setFinishName(String finishName) {
-        FinishName = finishName;
-    }
 
     public Order getOrder() {
         return order;
@@ -69,6 +60,30 @@ public class OrderItem  {
 
     public void setBatch(Batch batch) {
         this.batch = batch;
+    }
+
+    public String getSubstrateId() {
+        return SubstrateId;
+    }
+
+    public void setSubstrateId(String substrateId) {
+        SubstrateId = substrateId;
+    }
+
+    public String getFinishName() {
+        return FinishName;
+    }
+
+    public void setFinishName(String finishName) {
+        FinishName = finishName;
+    }
+
+    public ProductGroup getProductGroup() {
+        return productGroup;
+    }
+
+    public void setProductGroup(ProductGroup productGroup) {
+        this.productGroup = productGroup;
     }
 }
 
