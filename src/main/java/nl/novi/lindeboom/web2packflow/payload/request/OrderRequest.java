@@ -4,11 +4,24 @@ import nl.novi.lindeboom.web2packflow.domain.OrderItem;
 
 import java.util.List;
 
+
 public class OrderRequest {
 
     private String sourceOrderId;
+    private Integer storeFrontId;
     private List<OrderItem> orderItems;
 
+
+    // getters and setters
+
+
+    public Integer getStoreFrontId() {
+        return storeFrontId;
+    }
+
+    public void setStoreFrontId(Integer storeFrontId) {
+        this.storeFrontId = storeFrontId;
+    }
 
     public String getSourceOrderId() {
         return sourceOrderId;

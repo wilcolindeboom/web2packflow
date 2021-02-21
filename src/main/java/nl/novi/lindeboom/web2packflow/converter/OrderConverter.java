@@ -15,6 +15,7 @@ public class OrderConverter {
     public Order OrderRequestToOrder(OrderRequest orderRequest) {
         Order newOrder = new Order();
         newOrder.setSourceOrderId(orderRequest.getSourceOrderId());
+        newOrder.setStoreFrontId(orderRequest.getStoreFrontId());
         newOrder.setOrderItems(orderRequest.getOrderItems());
         return newOrder;
     }

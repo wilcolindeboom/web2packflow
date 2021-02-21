@@ -1,9 +1,7 @@
 package nl.novi.lindeboom.web2packflow.domain;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.List;
-
 
 @Entity
 @Table(name="orders")
@@ -12,6 +10,9 @@ public class Order {
     @Id
     @Column(nullable = false, unique = true)
     private String sourceOrderId;
+
+    @Column
+    private Integer storeFrontId;
 
     @OneToMany(
             targetEntity = OrderItem.class,
@@ -23,6 +24,16 @@ public class Order {
 
 
 //getters and setters
+
+
+    public Integer getStoreFrontId() {
+        return storeFrontId;
+    }
+
+    public void setStoreFrontId(Integer storeFrontId) {
+        this.storeFrontId = storeFrontId;
+    }
+
     public List<OrderItem> getOrderItems() {
         return orderItems;
     }

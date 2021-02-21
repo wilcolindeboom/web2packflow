@@ -20,4 +20,9 @@ public class BatchController {
     public ResponseEntity<Object> getBatches() {
         return ResponseEntity.status(200).body(batchservice.getBatches());
     }
+
+    @GetMapping(value = "/test")
+    public ResponseEntity<Object> getBatchesTest() {
+        return ResponseEntity.status(200).body(batchservice.getBatchesOverview());
+    }
 }

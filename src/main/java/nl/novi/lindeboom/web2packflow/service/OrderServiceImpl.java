@@ -64,7 +64,7 @@ public class OrderServiceImpl implements OrderService {
             List<OrderItem> newOrderItems = newOrder.getOrderItems();
             for (OrderItem item : newOrderItems) {
                 item.setOrder(newOrder);
-                item.setBatch(batchService.getBatch(item));
+                item.setBatch(batchService.getBatch(item, newOrder.getStoreFrontId()));
             }
             newOrder.setOrderItems(newOrderItems);
             String savedOrderId = saveOrder(newOrder).getSourceOrderId();

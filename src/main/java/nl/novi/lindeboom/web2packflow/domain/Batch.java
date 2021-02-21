@@ -1,8 +1,6 @@
 package nl.novi.lindeboom.web2packflow.domain;
 
 import org.hibernate.annotations.GenericGenerator;
-
-import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,11 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
-import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
 import java.util.List;
@@ -48,7 +42,7 @@ public class Batch {
     private String finishName;
 
     @Column
-    private String storeFrontId;
+    private Integer storeFrontId;
 
     @Column
     private Date shippingDate;
@@ -60,13 +54,6 @@ public class Batch {
             fetch = FetchType.EAGER)
     private List<OrderItem> orderItems ;
 
-//    @OneToOne(fetch = FetchType.EAGER,
-//            optional = false,
-//            cascade =  CascadeType.ALL)
-////    @PrimaryKeyJoinColumn(name = "product_group_id")
-//    @JoinColumn(name = "product_group_id", nullable = false)
-//    private ProductGroup productGroup;
-
     @ManyToOne
     @NotNull
     @JoinColumn(name = "product_group_id")
@@ -75,10 +62,12 @@ public class Batch {
     public Batch() {
     }
 
-    public Batch( String substrateId, String finishName, ProductGroup productGroup) {
+    public Batch( String substrateId, String finishName, ProductGroup productGroup, Integer storeFrontId) {
         this.substrateId = substrateId;
         this.finishName = finishName;
         this.productGroup = productGroup;
+        this.storeFrontId = storeFrontId;
+
     }
 
 
@@ -116,11 +105,11 @@ public class Batch {
         this.finishName = finishName;
     }
 
-    public String getStoreFrontId() {
+    public Integer getStoreFrontId() {
         return storeFrontId;
     }
 
-    public void setStoreFrontId(String storeFrontId) {
+    public void setStoreFrontId(Integer storeFrontId) {
         this.storeFrontId = storeFrontId;
     }
 

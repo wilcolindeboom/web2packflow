@@ -3,15 +3,15 @@ package nl.novi.lindeboom.web2packflow.service;
 import nl.novi.lindeboom.web2packflow.domain.Batch;
 import nl.novi.lindeboom.web2packflow.domain.OrderItem;
 import nl.novi.lindeboom.web2packflow.domain.ProductGroup;
+import nl.novi.lindeboom.web2packflow.payload.response.BatchOverviewResponse;
 
 import java.util.List;
 
 public interface BatchService {
 
     List<Batch> getBatches() ;
-    Batch createBatch(String substrateId, String finishName, ProductGroup productGroup);
-    Batch findBatch(String substrateId, String finishName, ProductGroup productGroup);
-    Batch getBatch(OrderItem item);
-
-    List<Batch> getBatchesOverview() ;
+    Batch createBatch(String substrateId, String finishName, ProductGroup productGroup, Integer storeFrontId);
+    Batch findBatch(String substrateId, String finishName, ProductGroup productGroup, Integer storeFrontID);
+    Batch getBatch(OrderItem item, Integer storeFrontId);
+    List<BatchOverviewResponse> getBatchesOverview();
 }

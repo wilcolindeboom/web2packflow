@@ -19,16 +19,21 @@ public class OrderItem  {
     @Column(nullable = false)
     private String sourceItemId;
 
+
+
     @ManyToOne
     @JoinColumn(name = "batch_id")
     @JsonIgnore
     private Batch batch;
 
     @Column
-    private String SubstrateId;
+    private String substrateId;
 
     @Column
-    private String FinishName;
+    private Integer quantity;
+
+    @Column
+    private String finishName;
 
     @ManyToOne
     @NotNull
@@ -37,6 +42,15 @@ public class OrderItem  {
 
 
 //getters and setters
+
+
+    public Integer getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(Integer quantity) {
+        this.quantity = quantity;
+    }
 
     public Order getOrder() {
         return order;
@@ -63,19 +77,19 @@ public class OrderItem  {
     }
 
     public String getSubstrateId() {
-        return SubstrateId;
+        return substrateId;
     }
 
     public void setSubstrateId(String substrateId) {
-        SubstrateId = substrateId;
+        this.substrateId = substrateId;
     }
 
     public String getFinishName() {
-        return FinishName;
+        return finishName;
     }
 
     public void setFinishName(String finishName) {
-        FinishName = finishName;
+        this.finishName = finishName;
     }
 
     public ProductGroup getProductGroup() {
