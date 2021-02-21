@@ -25,12 +25,19 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public Order getOrderById(String id) {
         if (orderRepository.existsById(id)) {
-            return orderRepository.findById(id).orElse(null);
+            return findOrderById(id);
         }
         else {
             throw new RecordNotFoundException();
         }
     }
+
+    @Override
+    public Order findOrderById(String id) {
+     return orderRepository.findById(id).orElse(null);
+    }
+
+
 
     @Override
     public Order saveOrder(Order order) {

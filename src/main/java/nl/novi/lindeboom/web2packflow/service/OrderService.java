@@ -11,5 +11,6 @@ public interface OrderService {
     List<Order> getOrders();
     Order getOrderById(String id);
     Order saveOrder(Order order);
+    Order findOrderById(String id);
 
 }

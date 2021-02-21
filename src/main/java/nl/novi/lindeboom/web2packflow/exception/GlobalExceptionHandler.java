@@ -14,7 +14,7 @@ import java.util.Date;
  * payload.response.ErrorResponse.class is used to provide a default structure for the error message
  * - Validation error
  * – record not found
- * –
+ * – Error processing JSON data
  */
 
 @ControllerAdvice
@@ -26,11 +26,6 @@ public class GlobalExceptionHandler {
                 ex.getBindingResult().getFieldError().getDefaultMessage());
         return new ResponseEntity<>(errorResponse, HttpStatus.BAD_REQUEST);
     }
-
-//    @ExceptionHandler(value = RecordNotFoundException.class)
-//    public ResponseEntity<Object> exception(RecordNotFoundException exception) {
-//        return ResponseEntity.notFound().build();
-//    }
 
     @ExceptionHandler(value = RecordNotFoundException.class)
     public ResponseEntity<Object> exception(RecordNotFoundException ex) {
