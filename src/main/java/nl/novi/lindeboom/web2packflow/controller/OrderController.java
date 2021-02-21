@@ -1,7 +1,7 @@
 package nl.novi.lindeboom.web2packflow.controller;
 
 import nl.novi.lindeboom.web2packflow.payload.request.OrderRequest;
-import nl.novi.lindeboom.web2packflow.service.OrderProcessService;
+import nl.novi.lindeboom.web2packflow.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,21 +17,21 @@ import org.springframework.web.bind.annotation.RestController;
 public class OrderController {
 
     @Autowired
-    private OrderProcessService orderProcessService;
+    private OrderService orderService;
 
     @GetMapping(value = "")
     public ResponseEntity<Object> getOrders() {
-        return ResponseEntity.status(200).body(orderProcessService.getOrders());
+        return ResponseEntity.status(200).body(orderService.getOrders());
     }
 
     @GetMapping(value = "/{id}")
     public ResponseEntity<Object> getOrder(@PathVariable("id") String id) {
-        return ResponseEntity.status(200).body(orderProcessService.getOrder(id));
+        return ResponseEntity.status(200).body(orderService.getOrder(id));
     }
 
     @PostMapping(value = "")
     public ResponseEntity<Object> inputOrder(@RequestBody OrderRequest orderRequest) {
-        return new ResponseEntity<>(orderProcessService.processOrder(orderRequest), HttpStatus.CREATED);
+        return new ResponseEntity<>(orderService.processOrder(orderRequest), HttpStatus.CREATED);
     }
 
 }

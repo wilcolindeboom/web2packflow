@@ -11,9 +11,7 @@ public interface BatchService {
     List<Batch> getBatches() ;
     Batch createBatch(String substrateId, String finishName, ProductGroup productGroup);
     Batch findBatch(String substrateId, String finishName, ProductGroup productGroup);
-//    Batch getBatch(OrderItem item);
-
-
+    Batch getBatch(OrderItem item);
 
     List<Batch> getBatchesOverview() ;
 }
