@@ -1,35 +1,21 @@
-package nl.novi.lindeboom.web2packflow.domain;
+package nl.novi.lindeboom.web2packflow.payload.request;
 
-import javax.persistence.*;
-import javax.validation.constraints.NotNull;
+import nl.novi.lindeboom.web2packflow.domain.Customer;
+import nl.novi.lindeboom.web2packflow.domain.OrderItem;
+
 import java.util.List;
 
-@Entity
-@Table(name="orders")
-public class Order {
 
-    @Id
-    @Column(nullable = false, unique = true)
+public class OrderRequest {
+
     private String sourceOrderId;
-
-    @Column
     private Integer storeFrontId;
-
-    @OneToMany(
-            targetEntity = OrderItem.class,
-            mappedBy = "order",
-            cascade = CascadeType.ALL,
-            orphanRemoval = true,
-            fetch = FetchType.EAGER)
-    private List<OrderItem> orderItems ;
-
-    @ManyToOne
-
-    @JoinColumn(name = "customer_id")
+    private List<OrderItem> orderItems;
     private Customer customer;
 
 
-    //getters and setters
+    // getters and setters
+
 
     public String getSourceOrderId() {
         return sourceOrderId;

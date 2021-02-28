@@ -20,11 +20,11 @@ import java.util.Date;
 public class JwtUtils {
     private static final Logger logger = LoggerFactory.getLogger(JwtUtils.class);
 
-    // Deze waardes staan geconfigureerd in application.properties
-    @Value("${novi.sec.jwtSecret}")
+
+    @Value("${eshuis.web2packflow.jwtSecret}")
     private String jwtSecret ;
 
-    @Value("${novi.sec.jwtExpirationMs}")
+    @Value("${eshuis.web2packflow.jwtExpirationMs}")
     private int jwtExpirationMs ;
 
 

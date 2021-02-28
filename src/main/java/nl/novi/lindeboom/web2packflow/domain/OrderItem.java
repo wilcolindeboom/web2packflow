@@ -1,10 +1,10 @@
 package nl.novi.lindeboom.web2packflow.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
+import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.*;
-import java.io.Serializable;
+import javax.validation.constraints.NotNull;
+import java.sql.Date;
 
 @Entity
 @IdClass(nl.novi.lindeboom.web2packflow.domain.OrderItemId.class)
@@ -15,24 +15,35 @@ public class OrderItem  {
     @MapsId
     @JoinColumn(name = "source_order_id")
     @JsonIgnore
-//    @JsonIgnoreProperties("orderItems")
     private Order order;
 
     @Id
     @Column(nullable = false)
     private String sourceItemId;
 
-//    @Id
-//    @Column(nullable = false)
-//    @JsonIgnore
-//    private String sourceOrderId;
-
     @ManyToOne
     @JoinColumn(name = "batch_id")
     @JsonIgnore
     private Batch batch;
 
+//    @Column(columnDefinition = "serial")
+    @Column
+    private String substrateId;
+    @Column
+    private Integer quantity;
+    @Column
+    private String finishName;
+    @Column
+    private java.sql.Date shippingDate;
 
+
+    @ManyToOne
+    @NotNull
+    @JoinColumn(name = "product_group_id")
+    private ProductGroup productGroup;
+
+
+//getters and setters
 
     public Order getOrder() {
         return order;
@@ -41,14 +52,6 @@ public class OrderItem  {
     public void setOrder(Order order) {
         this.order = order;
     }
-
-//    public String getSourceOrderId() {
-//        return sourceOrderId;
-//    }
-//
-//    public void setSourceOrderId(String sourceOrderId) {
-//        this.sourceOrderId = sourceOrderId;
-//    }
 
     public String getSourceItemId() {
         return sourceItemId;
@@ -64,6 +67,46 @@ public class OrderItem  {
 
     public void setBatch(Batch batch) {
         this.batch = batch;
+    }
+
+    public String getSubstrateId() {
+        return substrateId;
+    }
+
+    public void setSubstrateId(String substrateId) {
+        this.substrateId = substrateId;
+    }
+
+    public Integer getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(Integer quantity) {
+        this.quantity = quantity;
+    }
+
+    public String getFinishName() {
+        return finishName;
+    }
+
+    public void setFinishName(String finishName) {
+        this.finishName = finishName;
+    }
+
+    public Date getShippingDate() {
+        return shippingDate;
+    }
+
+    public void setShippingDate(Date shippingDate) {
+        this.shippingDate = shippingDate;
+    }
+
+    public ProductGroup getProductGroup() {
+        return productGroup;
+    }
+
+    public void setProductGroup(ProductGroup productGroup) {
+        this.productGroup = productGroup;
     }
 }
 
