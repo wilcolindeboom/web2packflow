@@ -5,7 +5,6 @@ import nl.novi.lindeboom.web2packflow.domain.Batch;
 import nl.novi.lindeboom.web2packflow.domain.OrderItem;
 import nl.novi.lindeboom.web2packflow.domain.ProductGroup;
 import nl.novi.lindeboom.web2packflow.payload.response.BatchOverviewResponse;
-import nl.novi.lindeboom.web2packflow.payload.response.OrderResponse;
 import nl.novi.lindeboom.web2packflow.repository.BatchRepository;
 import nl.novi.lindeboom.web2packflow.repository.ProductGroupRepository;
 import org.springframework.beans.factory.annotation.Autowired;

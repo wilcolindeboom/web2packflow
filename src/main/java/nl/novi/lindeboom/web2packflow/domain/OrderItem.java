@@ -1,8 +1,6 @@
 package nl.novi.lindeboom.web2packflow.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
@@ -14,8 +12,7 @@ public class OrderItem  {
     @ManyToOne
     @MapsId
     @JoinColumn(name = "source_order_id")
-//    @JsonIgnore
-    @JsonIgnoreProperties("orderItems")
+    @JsonIgnore
     private Order order;
 
     @Id

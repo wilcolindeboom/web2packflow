@@ -18,11 +18,13 @@ INSERT INTO role(name) VALUES('ROLE_ADMIN');
 
 insert into product_groups (id, description) VALUES (21, 'zelfklevende etiketten');
 
-insert into orders (source_order_id, store_front_id) values ('order1',3);
-insert into orders (source_order_id, store_front_id) values ('order2',3);
-insert into orders (source_order_id, store_front_id) values ('order3',3);
-insert into orders (source_order_id, store_front_id) values ('order4',3);
-insert into orders (source_order_id, store_front_id) values ('order5',3);
+insert into customers (id, company_name, email, first_name, last_name) VALUES (0,'Brouwerij Heukels', 'lheukels@brouwerijheukels.nl', 'Lisette', 'Heukels');
+
+insert into orders (source_order_id, store_front_id, customer_id) values ('order1',3, 0);
+insert into orders (source_order_id, store_front_id, customer_id) values ('order2',3, 0);
+insert into orders (source_order_id, store_front_id, customer_id) values ('order3',3, 0);
+insert into orders (source_order_id, store_front_id, customer_id) values ('order4',3, 0);
+insert into orders (source_order_id, store_front_id, customer_id) values ('order5',3, 0);
 
 insert into batches (id, open, substrate_id, finish_name, product_group_id, store_front_id) VALUES (0,true,'000269','IVO43', 21, 3 );
 

@@ -17,6 +17,7 @@ public class OrderConverter {
         newOrder.setSourceOrderId(orderRequest.getSourceOrderId());
         newOrder.setStoreFrontId(orderRequest.getStoreFrontId());
         newOrder.setOrderItems(orderRequest.getOrderItems());
+        newOrder.setCustomer(orderRequest.getCustomer());
         return newOrder;
     }
 
@@ -28,6 +29,7 @@ public class OrderConverter {
         OrderResponse newOrderResponse = new OrderResponse();
         newOrderResponse.setSourceOrderId(order.getSourceOrderId());
         newOrderResponse.setOrderItems(order.getOrderItems());
+        newOrderResponse.setCustomer(order.getCustomer());
         return newOrderResponse;
     }
 

@@ -16,13 +16,13 @@ public class BatchController {
     private  BatchService batchservice;
 
 
+//    @GetMapping(value = "")
+//    public ResponseEntity<Object> getBatches() {
+//        return ResponseEntity.status(200).body(batchservice.getBatches());
+//    }
+
     @GetMapping(value = "")
     public ResponseEntity<Object> getBatches() {
-        return ResponseEntity.status(200).body(batchservice.getBatches());
-    }
-
-    @GetMapping(value = "/test")
-    public ResponseEntity<Object> getBatchesTest() {
         return ResponseEntity.status(200).body(batchservice.getBatchesOverview());
     }
 }

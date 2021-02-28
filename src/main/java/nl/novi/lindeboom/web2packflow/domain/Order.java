@@ -1,6 +1,7 @@
 package nl.novi.lindeboom.web2packflow.domain;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @Entity
@@ -22,9 +23,21 @@ public class Order {
             fetch = FetchType.EAGER)
     private List<OrderItem> orderItems ;
 
+    @ManyToOne
+//    @NotNull
+    @JoinColumn(name = "customer_id")
+    private Customer customer;
+
 
 //getters and setters
 
+    public String getSourceOrderId() {
+        return sourceOrderId;
+    }
+
+    public void setSourceOrderId(String sourceOrderId) {
+        this.sourceOrderId = sourceOrderId;
+    }
 
     public Integer getStoreFrontId() {
         return storeFrontId;
@@ -42,11 +55,11 @@ public class Order {
         this.orderItems = orderItems;
     }
 
-    public String getSourceOrderId() {
-        return sourceOrderId;
+    public Customer getCustomer() {
+        return customer;
     }
 
-    public void setSourceOrderId(String id) {
-        this.sourceOrderId = id;
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
 }
