@@ -25,6 +25,10 @@ public class BatchServiceImpl implements BatchService{
     private BatchConverter batchConverter;
 
 
+    /** set (or create and set) batch for orderitem
+     *  verify productgroup is existing
+     */
+
     @Override
     public Batch getBatch(OrderItem orderItem, Integer storeFrontId) {
         Batch batch = findBatch(orderItem.getSubstrateId(), orderItem.getFinishName(), orderItem.getProductGroup(), storeFrontId);
@@ -49,6 +53,11 @@ public class BatchServiceImpl implements BatchService{
     }
 
     @Override
+    public Batch createBatch(String substrateId, String finishName, ProductGroup productGroup, Integer storeFrontId, Date shippingDate) {
+        return batchRepository.save(new Batch(substrateId, finishName, productGroup,storeFrontId, shippingDate));
+    }
+
+    @Override
     public Batch setBatchShippingDate(Batch batch, OrderItem orderItem) {
         if(batch.getShippingDate().compareTo(orderItem.getShippingDate()) > 0) {
             batch.setShippingDate(orderItem.getShippingDate());
@@ -69,10 +78,7 @@ public class BatchServiceImpl implements BatchService{
 
 
 
-    @Override
-    public Batch createBatch(String substrateId, String finishName, ProductGroup productGroup, Integer storeFrontId, Date shippingDate) {
-      return batchRepository.save(new Batch(substrateId, finishName, productGroup,storeFrontId, shippingDate));
-    }
+
 
 
 

@@ -42,22 +42,4 @@ public class GlobalExceptionHandler {
             return new ResponseEntity<>(errorResponse, HttpStatus.BAD_REQUEST);
     }
 
-
-
-//
-//    @ExceptionHandler(value = BadRequestException.class)
-//    public ResponseEntity<Object> exception(BadRequestException exception) {
-//        return ResponseEntity.badRequest().build();
-//    }
-//
-//    @ExceptionHandler(value = UserNotFoundException.class)
-//    public ResponseEntity<Object> exception(UserNotFoundException exception) {
-//        return ResponseEntity.badRequest().build();
-//    }
-//
-//    @ExceptionHandler(value = ForbiddenException.class)
-//    public ResponseEntity<Object> exception(ForbiddenException exception) {
-//        return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
-//    }
-
 }

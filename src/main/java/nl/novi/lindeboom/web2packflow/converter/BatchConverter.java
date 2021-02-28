@@ -3,9 +3,11 @@ package nl.novi.lindeboom.web2packflow.converter;
 import nl.novi.lindeboom.web2packflow.domain.Batch;
 import nl.novi.lindeboom.web2packflow.payload.response.BatchOverviewResponse;
 import org.springframework.stereotype.Component;
-
 import java.util.List;
 import java.util.stream.Collectors;
+
+/** Converts BatchOverviewResponse to Batch and viceversa
+ */
 
 @Component
 public class BatchConverter {

@@ -1,7 +1,6 @@
 package nl.novi.lindeboom.web2packflow.service;
 
 import nl.novi.lindeboom.web2packflow.domain.Customer;
-import nl.novi.lindeboom.web2packflow.domain.Order;
 import nl.novi.lindeboom.web2packflow.exception.RecordNotFoundException;
 import nl.novi.lindeboom.web2packflow.repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,12 +22,6 @@ public class CustomerServiceImpl implements CustomerService {
         }
     }
 
-
-    @Override
-    public Customer findCustomerById(Long id) {
-        return customerRepository.findById(id).orElse(null);
-    }
-
     @Override
     public Customer setCustomer(Customer customer) {
         if(findCustomerById(customer.getId()) == null) {
@@ -37,6 +30,11 @@ public class CustomerServiceImpl implements CustomerService {
         else {
             return getCustomerById(customer.getId());
         }
+    }
+
+    @Override
+    public Customer findCustomerById(Long id) {
+        return customerRepository.findById(id).orElse(null);
     }
 
     @Override

@@ -21,15 +21,4 @@ public class UserController {
         return ResponseEntity.ok().body(userService.getUsers());
     }
 
-    //todo
-
-//    @Autowired
-//    private UserService userService;
-//
-//    @PutMapping(value = "/{username}")
-//    public ResponseEntity<Object> updateUser(@PathVariable("username") String username, @RequestBody User user) {
-//        userService.updateUser(username, user);
-//        return ResponseEntity.noContent().build();
-//    }
-
 }

@@ -1,9 +1,7 @@
 package nl.novi.lindeboom.web2packflow.payload.response;
 
-import nl.novi.lindeboom.web2packflow.domain.Order;
-import nl.novi.lindeboom.web2packflow.domain.OrderItem;
 
-import java.util.ArrayList;
+import nl.novi.lindeboom.web2packflow.domain.OrderItem;
 import java.util.Date;
 import java.util.List;
 
@@ -15,38 +13,7 @@ public class BatchOverviewResponse {
     private String finishName;
     private Date shippingDate;
     private List<OrderItem> orderItems;
-//
-//
-//    public class BatchOrderItem {
-//
-//        private String sourceOrderId;
-//        private String sourceItemId;
-//        private Integer quantity;
-//
-//        public String getSourceOrderId() {
-//            return sourceOrderId;
-//        }
-//
-//        public void setSourceOrderId(String sourceOrderId) {
-//            this.sourceOrderId = sourceOrderId;
-//        }
-//
-//        public String getSourceItemId() {
-//            return sourceItemId;
-//        }
-//
-//        public void setSourceItemId(String sourceItemId) {
-//            this.sourceItemId = sourceItemId;
-//        }
-//
-//        public Integer getQuantity() {
-//            return quantity;
-//        }
-//
-//        public void setQuantity(Integer quantity) {
-//            this.quantity = quantity;
-////        }
-//    }
+
 
     public Long getId() {
         return id;
