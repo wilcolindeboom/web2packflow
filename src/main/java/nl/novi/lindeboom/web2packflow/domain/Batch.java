@@ -13,7 +13,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
-import java.util.Date;
+import java.sql.Date;
 import java.util.List;
 
 @Entity
@@ -31,21 +31,11 @@ public class Batch {
     )
     @Column(columnDefinition = "serial")
     private Long id;
-
-    @Column
     private boolean open = true;
-
-    @Column
     private String substrateId;
-
-    @Column
     private String finishName;
-
-    @Column
     private Integer storeFrontId;
-
-    @Column
-    private Date shippingDate;
+    private java.sql.Date shippingDate;
 
     @OneToMany(
             targetEntity = OrderItem.class,
@@ -62,16 +52,18 @@ public class Batch {
     public Batch() {
     }
 
-    public Batch( String substrateId, String finishName, ProductGroup productGroup, Integer storeFrontId) {
+    public Batch( String substrateId, String finishName, ProductGroup productGroup, Integer storeFrontId, Date shippingDate) {
         this.substrateId = substrateId;
         this.finishName = finishName;
         this.productGroup = productGroup;
         this.storeFrontId = storeFrontId;
+        this.shippingDate = shippingDate;
 
     }
 
 
     //getters and setters
+
 
     public Long getId() {
         return id;

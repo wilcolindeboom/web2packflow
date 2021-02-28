@@ -15,5 +15,6 @@ public interface OrderService {
     List<OrderResponse> getOrderResponse();
     OrderResponse getOrder(String id);
     String processOrder(OrderRequest orderRequest) ;
+    Order procesOrderItems(Order newOrder);
 
 }
