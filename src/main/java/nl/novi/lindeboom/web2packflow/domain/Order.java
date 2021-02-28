@@ -24,12 +24,12 @@ public class Order {
     private List<OrderItem> orderItems ;
 
     @ManyToOne
-//    @NotNull
+
     @JoinColumn(name = "customer_id")
     private Customer customer;
 
 
-//getters and setters
+    //getters and setters
 
     public String getSourceOrderId() {
         return sourceOrderId;
