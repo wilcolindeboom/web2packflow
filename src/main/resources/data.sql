@@ -12,31 +12,63 @@ database te krijgen is via SQL statements in dit bestand.
 
  */
 
+ /*
+ test data postgres database
+ */
+--
+-- INSERT INTO role(name) VALUES('ROLE_USER');
+-- INSERT INTO role(name) VALUES('ROLE_EDITOR');
+-- INSERT INTO role(name) VALUES('ROLE_ADMIN');
+--
+-- insert into product_groups (id, description) VALUES (21, 'zelfklevende etiketten');
+--
+-- insert into customers (id, company_name, email, first_name, last_name) VALUES (0,'Brouwerij Heukels', 'lheukels@brouwerijheukels.nl', 'Lisette', 'Heukels');
+--
+-- insert into orders (source_order_id, store_front_id, customer_id) values ('order1',3, 0);
+-- insert into orders (source_order_id, store_front_id, customer_id) values ('order2',3, 0);
+-- insert into orders (source_order_id, store_front_id, customer_id) values ('order3',3, 0);
+-- insert into orders (source_order_id, store_front_id, customer_id) values ('order4',3, 0);
+-- insert into orders (source_order_id, store_front_id, customer_id) values ('order5',3, 0);
+--
+-- insert into batches (id, open, substrate_id, finish_name, product_group_id, store_front_id, shipping_date) VALUES (0,true,'000269','IVO43', 21, 3, '2021-03-08' );
+--
+-- insert into orderitems (source_item_id, finish_name, substrate_id, source_order_id, batch_id, product_group_id, quantity, shipping_date) VALUES ('item1', 'IVO43','000269','order1',0,'21', 1000, '2021-03-08');
+-- insert into orderitems (source_item_id, finish_name, substrate_id, source_order_id, batch_id, product_group_id, quantity, shipping_date) VALUES ('item2', 'IVO43','000269','order2',0,'21', 2000, '2021-03-08');
+-- insert into orderitems (source_item_id, finish_name, substrate_id, source_order_id, batch_id, product_group_id, quantity, shipping_date) VALUES ('item3', 'IVO43','000269','order3',0,'21', 500, '2021-03-08');
+-- insert into orderitems (source_item_id, finish_name, substrate_id, source_order_id, batch_id, product_group_id, quantity, shipping_date) VALUES ('item4', 'IVO43','000269','order4',0,'21', 3000, '2021-03-08');
+-- insert into orderitems (source_item_id, finish_name, substrate_id, source_order_id, batch_id, product_group_id, quantity, shipping_date) VALUES ('item1', 'IVO43','000269','order5',0,'21', 1000, '2021-03-08');
+--
+-- insert into app_user (id, username,email,enabled,password) values (0,'admin','admin@web2packflow.com',true,'$2a$10$wPHxwfsfTnOJAdgYcerBt.utdAvC24B/DWfuXfzKBSDHO0etB1ica');
+-- insert into user_role (user_id, role_id) VALUES (0,3);
+
+/*
+test data msql database
+*/
+
 INSERT INTO role(name) VALUES('ROLE_USER');
 INSERT INTO role(name) VALUES('ROLE_EDITOR');
 INSERT INTO role(name) VALUES('ROLE_ADMIN');
 
 insert into product_groups (id, description) VALUES (21, 'zelfklevende etiketten');
 
-insert into customers (id, company_name, email, first_name, last_name) VALUES (0,'Brouwerij Heukels', 'lheukels@brouwerijheukels.nl', 'Lisette', 'Heukels');
+insert into customers (company_name, email, first_name, last_name) VALUES ('Brouwerij Heukels', 'lheukels@brouwerijheukels.nl', 'Lisette', 'Heukels');
 
-insert into orders (source_order_id, store_front_id, customer_id) values ('order1',3, 0);
-insert into orders (source_order_id, store_front_id, customer_id) values ('order2',3, 0);
-insert into orders (source_order_id, store_front_id, customer_id) values ('order3',3, 0);
-insert into orders (source_order_id, store_front_id, customer_id) values ('order4',3, 0);
-insert into orders (source_order_id, store_front_id, customer_id) values ('order5',3, 0);
+insert into orders (source_order_id, store_front_id) values ('order1',3);
+insert into orders (source_order_id, store_front_id) values ('order2',3);
+insert into orders (source_order_id, store_front_id) values ('order3',3);
+insert into orders (source_order_id, store_front_id) values ('order4',3);
+insert into orders (source_order_id, store_front_id) values ('order5',3);
 
-insert into batches (id, open, substrate_id, finish_name, product_group_id, store_front_id, shipping_date) VALUES (0,true,'000269','IVO43', 21, 3, '2021-03-08' );
+insert into batches (closed, substrate_id, finish_name, product_group_id, store_front_id, shipping_date) VALUES (0,'000269','IVO43', 21, 3, '2021-03-08' );
 
-insert into orderitems (source_item_id, finish_name, substrate_id, source_order_id, batch_id, product_group_id, quantity, shipping_date) VALUES ('item1', 'IVO43','000269','order1',0,'21', 1000, '2021-03-08');
-insert into orderitems (source_item_id, finish_name, substrate_id, source_order_id, batch_id, product_group_id, quantity, shipping_date) VALUES ('item2', 'IVO43','000269','order2',0,'21', 2000, '2021-03-08');
-insert into orderitems (source_item_id, finish_name, substrate_id, source_order_id, batch_id, product_group_id, quantity, shipping_date) VALUES ('item3', 'IVO43','000269','order3',0,'21', 500, '2021-03-08');
-insert into orderitems (source_item_id, finish_name, substrate_id, source_order_id, batch_id, product_group_id, quantity, shipping_date) VALUES ('item4', 'IVO43','000269','order4',0,'21', 3000, '2021-03-08');
-insert into orderitems (source_item_id, finish_name, substrate_id, source_order_id, batch_id, product_group_id, quantity, shipping_date) VALUES ('item1', 'IVO43','000269','order5',0,'21', 1000, '2021-03-08');
+insert into orderitems (source_item_id, finish_name, substrate_id, source_order_id, batch_id, product_group_id, quantity, shipping_date) VALUES ('item1', 'IVO43','000269','order1',1,21, 1000, '2021-03-08');
+insert into orderitems (source_item_id, finish_name, substrate_id, source_order_id, batch_id, product_group_id, quantity, shipping_date) VALUES ('item2', 'IVO43','000269','order2',1,21, 2000, '2021-03-08');
+insert into orderitems (source_item_id, finish_name, substrate_id, source_order_id, batch_id, product_group_id, quantity, shipping_date) VALUES ('item3', 'IVO43','000269','order3',1,21, 500, '2021-03-08');
+insert into orderitems (source_item_id, finish_name, substrate_id, source_order_id, batch_id, product_group_id, quantity, shipping_date) VALUES ('item4', 'IVO43','000269','order4',1,21, 3000, '2021-03-08');
+insert into orderitems (source_item_id, finish_name, substrate_id, source_order_id, batch_id, product_group_id, quantity, shipping_date) VALUES ('item1', 'IVO43','000269','order5',1,21, 1000, '2021-03-08');
 
-insert into app_user (id, username,email,enabled,password) values (0,'admin','admin@web2packflow.com',true,'$2a$10$wPHxwfsfTnOJAdgYcerBt.utdAvC24B/DWfuXfzKBSDHO0etB1ica');
-insert into user_role (user_id, role_id) VALUES (0,3);
-
+insert into app_user (username,email,enabled,password) values ('admin','admin@web2packflow.com',1,'$2a$10$wPHxwfsfTnOJAdgYcerBt.utdAvC24B/DWfuXfzKBSDHO0etB1ica');
+insert into user_role (user_id, role_id) VALUES (1,3);
 
 
 

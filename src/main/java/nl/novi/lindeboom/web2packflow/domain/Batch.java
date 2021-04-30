@@ -29,9 +29,9 @@ public class Batch {
             name = "native",
             strategy = "native"
     )
-    @Column(columnDefinition = "serial")
+    @Column //(columnDefinition = "serial")
     private Long id;
-    private boolean open = true;
+    private boolean closed = false;
     private String substrateId;
     private String finishName;
     private Integer storeFrontId;
@@ -73,12 +73,12 @@ public class Batch {
         this.id = id;
     }
 
-    public boolean isOpen() {
-        return open;
+    public boolean getClosed() {
+        return closed;
     }
 
-    public void setOpen(boolean open) {
-        this.open = open;
+    public void setClosed(boolean closed) {
+        this.closed = closed;
     }
 
     public String getSubstrateId() {

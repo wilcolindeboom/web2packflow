@@ -48,7 +48,7 @@ public class BatchServiceImpl implements BatchService{
 
     @Override
     public Batch findBatch(String substrateId, String finishName, ProductGroup productGroup, Integer storeFrontID) {
-        return batchRepository.findBySubstrateIdAndFinishNameAndOpenAndProductGroupAndStoreFrontId(substrateId,
+        return batchRepository.findBySubstrateIdAndFinishNameAndClosedAndProductGroupAndStoreFrontId(substrateId,
                 finishName, true, productGroup, storeFrontID);
     }
 

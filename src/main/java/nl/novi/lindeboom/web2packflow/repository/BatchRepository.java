@@ -6,6 +6,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface BatchRepository extends JpaRepository<Batch, Long>{
 
-      Batch findBySubstrateIdAndFinishNameAndOpenAndProductGroupAndStoreFrontId(String substrateId, String finishName, boolean closed, ProductGroup productGroup, Integer storeFrontId);
+      Batch findBySubstrateIdAndFinishNameAndClosedAndProductGroupAndStoreFrontId(String substrateId, String finishName, boolean closed, ProductGroup productGroup, Integer storeFrontId);
 
 }

@@ -18,7 +18,7 @@ public class BatchConverter {
         BatchOverviewResponse newBatchOverviewResponse = new BatchOverviewResponse();
         newBatchOverviewResponse.setId(batch.getId());
         newBatchOverviewResponse.setFinishName(batch.getFinishName());
-        newBatchOverviewResponse.setOpen(batch.isOpen());
+        newBatchOverviewResponse.setOpen(batch.getClosed());
         newBatchOverviewResponse.setSubstrateId(batch.getSubstrateId());
         newBatchOverviewResponse.setFinishName(batch.getFinishName());
         newBatchOverviewResponse.setShippingDate(batch.getShippingDate());

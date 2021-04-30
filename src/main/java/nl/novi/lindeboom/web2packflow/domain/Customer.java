@@ -27,7 +27,7 @@ public class Customer {
             name = "native",
             strategy = "native"
     )
-    @Column(columnDefinition = "serial")
+    @Column //(columnDefinition = "serial")
     private long id;
     @NotNull
     private String firstName;
